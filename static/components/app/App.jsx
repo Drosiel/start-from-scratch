@@ -1,5 +1,5 @@
 import React from "react"
-import { Browserrouter as Router, Route, Link } from "react-router-dom"
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
 import Culture from "../culture/Culture.jsx"
 import Art from "../art/Art.jsx"
@@ -7,29 +7,23 @@ import Art from "../art/Art.jsx"
 export default class App extends React.Component {
     render() {
         return (
-            <router>
+            <Router>
                 <div>
                     <header className="header">
                         <div className="logo">Япония</div>
-                        <div>
+                        <nav>
                             <ul className="nav">
-                                <Link to="/">
-                                    <li className="nav-item">
-                                        История
-                                    </li>
-                                </Link>
-                                <Link to="/culture">
-                                    <li className="nav-item">
-                                        Культура
-                                    </li>
-                                </Link>
-                                <Link to="/art">
-                                    <li className="nav-item">
-                                        Искусство
-                                    </li>
-                                </Link>
+                                <li>
+                                    <Link className="nav-item" to="/">История</Link>
+                                </li>
+                                <li>
+                                    <Link to="/culture" className="nav-item">Культура</Link>
+                                </li>
+                                <li>
+                                    <Link to="/art" className="nav-item">Искусство</Link>
+                                </li>
                             </ul>
-                        </div>
+                        </nav>
                     </header>
 
                     <div className='main'>
@@ -38,7 +32,7 @@ export default class App extends React.Component {
                         <Route path="/art" exact component={ArtRoute} />
                     </div>
                 </div>                
-            </router>
+            </Router>
         )
     }
 }

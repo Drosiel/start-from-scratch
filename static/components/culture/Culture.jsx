@@ -1,37 +1,38 @@
 import React from "react"
-import { Browserrouter as Router, Route, Link } from "react-router-dom"
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
 import Two from "../culture/two/two.jsx"
-//import Two from "../culture/free/free.jsx"
+import Free from "../culture/free/free.jsx"
 
 export default class Culture extends React.Component {
     render() {
         return (
-            <router>
+            <Router>
                 <div>
-                    <ul>
-                        <Link to="/culture">
-                            <li>1</li>
-                        </Link>
-                        <Link to="/culture/two">
-                            <li>2</li>
-                        </Link>
-                        <Link to="/culture/free">
-                            <li>3</li>
-                        </Link>
-                    </ul>
+                    <div>
+                        <ul>
+                            <Link to="/culture/one">
+                                <li>1</li>
+                            </Link>
+                            <Link to="/culture/two">
+                                <li>2</li>
+                            </Link>
+                            <Link to="/culture/free">
+                                <li>3</li>
+                            </Link>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <Route path="/culture/one" exact component={oneRoute} />
+                        <Route path="/culture/two" exact component={twoRoute} />
+                        <Route path="/culture/free" exact component={freeRoute} />
+                    </div>
                 </div>
-                
-                <div>
-                    <Route path="/culture" exact component={oneRoute} />
-                    <Route path="/culture/two" exact component={twoRoute} />
-                    <Route path="/culture/free" exact component={freeRoute} />
-                </div>
-            </router>
+            </Router>
         )
     }
 }
-
 
 class oneRoute extends Culture {
     render() {
